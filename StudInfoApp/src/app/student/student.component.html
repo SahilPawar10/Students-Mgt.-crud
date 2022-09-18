@@ -1,0 +1,71 @@
+<div class="container-fluid g-0 p-2">
+    <div class="row g-0">
+
+        <div class="col-md-2 d-flex justify-content-center align-items-center" >
+                <img src="../../assets/images/{{student.profile}}" alt="profile-image" class="profile">
+        </div>
+        <div class="col ps-2">
+
+            <div class="row g-0 ">
+
+                <div class="col-md-10 text-center">
+                    <span class="name ">{{student.firstname | titlecase}} {{student.lastname | titlecase}}</span>
+                </div>
+                <div class="col-md-2">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-success" (click)="editStudentClicked()">Edit..</button>
+                        <button type="button" class="btn btn-outline-danger" (click)="deleteStudent()">Delete</button>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row g-0 mt-3">
+                <div class="col-md">
+                    <table class="table table-hover mx-auto">
+                        <tbody>
+                            <tr>
+                                <td>Birthdate</td>
+                                <td>{{student.birthday}}</td>
+                            </tr>
+                            <tr>
+                                <td>Relegion</td>
+                                <td>{{student.relegion | titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td>E-mail</td>
+                                <td>{{student.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>Department</td>
+                                <td>{{student.department | titlecase}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md">
+                    <table class="table table-hover mx-auto">
+                        <tbody>
+                            <tr>
+                                <td>Gender</td>
+                                <td>{{student.gender | titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td>Cast</td>
+                                <td>{{student.cast | titlecase}}</td>
+                            </tr>
+                            <tr>
+                                <td>Mobile</td>
+                                <td>{{student.mobile}}</td>
+                            </tr>
+                            <tr>
+                                <td>Fees</td>
+                                <td>{{student.fees | titlecase}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</div>

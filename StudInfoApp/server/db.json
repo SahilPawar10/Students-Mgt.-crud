@@ -1,0 +1,74 @@
+{
+  "posts": [
+    {
+      "firstname": "sahil",
+      "lastname": "pawar",
+      "birthday": "2000-05-26",
+      "gender": "Male",
+      "relegion": "Hindu",
+      "cast": "open",
+      "mobile": 9764804327,
+      "email": "sahilpawar9764@gmail.com",
+      "department": "bca",
+      "fees": "Paid",
+      "profile": "profile-07.JPG",
+      "id": 3
+    },
+    {
+      "firstname": "swapnil",
+      "lastname": "kadam",
+      "birthday": "2022-07-13",
+      "gender": "Male",
+      "relegion": "Hindu",
+      "cast": "Maratha",
+      "mobile": 1245678945,
+      "email": "swpm@gmail.com",
+      "department": "history",
+      "fees": "Not-paid",
+      "profile": "profile-8.jpeg",
+      "id": 4
+    },
+    {
+      "firstname": "ridhi",
+      "lastname": "pawar",
+      "birthday": "2002-11-14",
+      "gender": "Female",
+      "relegion": "Hindu",
+      "cast": "open",
+      "mobile": 8956231245,
+      "email": "ridhi123@gmail.com",
+      "department": "bsc",
+      "fees": "Not-paid",
+      "profile": "profile -09.jpeg",
+      "id": 5
+    },
+    {
+      "firstname": "sujit",
+      "lastname": "pawar",
+      "birthday": "1998-06-04",
+      "gender": "Male",
+      "relegion": "Hindu",
+      "cast": "general",
+      "mobile": 703895312,
+      "email": "sujitpawar11@gmail.com",
+      "department": "bsc",
+      "fees": "Paid",
+      "profile": "Profile-03.jpg",
+      "id": 7
+    },
+    {
+      "firstname": "sahil",
+      "lastname": "pawar",
+      "birthday": "2022-07-10",
+      "gender": "Male",
+      "relegion": "christian",
+      "cast": "open",
+      "mobile": 9764784578,
+      "email": "sahilpawar9764@gmail.com",
+      "department": "bca",
+      "fees": "Not-paid",
+      "profile": "Profile-03.jpg",
+      "id": 8
+    }
+  ]
+}

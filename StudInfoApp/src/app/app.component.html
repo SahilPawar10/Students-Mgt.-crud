@@ -1,0 +1,186 @@
+<!-- header -->
+<div class="container-fluid header">
+  <!-- ------header ------>
+
+
+  <app-header></app-header>
+  <!-- -----main ------>
+
+
+  <main class="border">
+
+    <!-- button and searchbar -->
+    <div class="toolbar ">
+      <nav class="navbar ">
+        <div class="container">
+          <div class="addstud">
+            <button type="button" class="btn btn-outline-success btn-lg"  data-bs-toggle="modal" data-bs-target="#exampleModal"  #addStudentbutton>Register Student</button>
+          </div>
+          <div class="searchbar">
+            <input class="form-control " type="search" placeholder="Search Student" aria-label="Search" (input)="SerchStudent(searchInput.value)" #searchInput>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- student Information-->
+
+    <div class="Student">
+
+      <div class="row mt-5" *ngIf="Student.length == 0">
+        <div class="col text-center">
+          <span class="text-secondary fs-2 fw-bold fst-italic">Add Student Information Here</span>
+        </div>
+      </div>
+<!-- area to dispay Employee -->
+          <div class="row mt-4" *ngFor="let Student of StudentToDisplay; let si=index">
+              <div class="col ">
+                <app-student [student]="Student" (onRemoveStudent)="removeStudent($event)" 
+                   (onEditStudent)="editStudent($event)"></app-student>
+              </div>
+          </div>
+    </div>
+  </main>
+</div>
+
+
+<!---------------- Modal ----------->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Register Student Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="Studentform">
+
+          <!-- first name last name -->
+          <div class="row">
+            <div class="col">
+              <input class="form-control  " type="search" placeholder="First Name" aria-label="Search"  formControlName="firstname" required="true">
+            </div>
+            <div class="col">
+              <input class="form-control  " type="search" placeholder="Last Name" aria-label="Search"  formControlName="lastname" required="true">
+            </div>
+          </div><br>  
+
+          <!-- personal Information -->
+          <div class="row">
+            <div class="col pers-info">
+              <h6 class="text-secondary  fst-italic"  >Personal Information</h6>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="datepicker" class="form-label   ">Date Of Birth</label>
+                <input type="date" class="form-control" id="datepicker"  formControlName="birthday" required ="true">
+              </div>
+              <div class="col">
+                <div class="row">
+                  <h6 class="text-secondary ">Gender</h6>
+                </div>
+                <div class="row">
+                  <div class="col" >
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" id="Male" value="Male"  formControlName="gender">
+                      <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" id="Female" value="Female"  formControlName="gender">
+                      <label class="form-check-label" for="female">Female</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><br>
+          <!-- religion and cast -->
+          <div class="row">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <h6 class="text-secondary ">Religion</h6>
+                </div>
+                <select class="form-select" formControlName="religion">
+                  <option value="default"  selected *ngFor="let Option of Religionption; let i = index;" value="{{i}}" aria-required="true">
+                    {{ Option | titlecase}}</option>
+                </select>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <h6 class="text-secondary ">Cast</h6>
+                </div>
+                    <select class="form-select" formControlName="cast">
+                      <option value="default"  *ngFor="let Option of category; let i = index;" value="{{i}}" aria-required="true" >
+                        {{ Option | titlecase}} </option>
+                    </select>
+              </div>
+            </div>
+            </div><br>
+            <!------ mobile and email ------>
+            <div class="row">
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                    <h6 class="text-secondary ">Mobile</h6>
+                  </div>
+                  <input class="form-control  " type="number" placeholder="Mobile" aria-label="mobile" required formControlName="mobile">
+                </div>
+                <div class="col">
+                  <div class="row">
+                    <h6 class="text-secondary ">Email</h6>
+                  </div>
+                  <input class="form-control  " type="email" placeholder="Email" aria-label="email" required formControlName="email">
+                </div>
+              </div>
+          </div> <br>
+          <div class="row">
+            <div class="row">
+              <div class="col">
+                <h6 class="text-secondary ">Department</h6>
+                <div>
+                  <!-- <select class="form-select">
+                    <option value="default" *ngFor="let Option of department; let i =index"; value="{{i}}">
+                      {{Option | titlecase}}</option>
+                   </select> -->
+                   <select class="form-select" formControlName="department">
+                    <option value="default"  *ngFor="let Option of department; let i = index;" value="{{i}}" aria-required="true">
+                      {{ Option | titlecase}} </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <h6 class="text-secondary ">Gender</h6>
+                </div>
+                  <div class="col">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="fees" id="paid" value="Paid" required="true" formControlName="fees">
+                      <label class="form-check-label" for="paid">Paid</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="fees" id="Not-paid" value="Not-paid" required="true" formControlName="fees">
+                      <label class="form-check-label" for="Not-paid">Not-paid</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!--------------profile---------->
+          <div class="row mt-3" >
+            <div class="col">
+              <label for="profile" class="form-label">Profile </label>
+              <input type="file" class="form-control" id="profile" #fileinput required="true">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addstudent()" >Register</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <router-outlet></router-outlet> -->
